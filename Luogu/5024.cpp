@@ -14,6 +14,7 @@ ll g[SN][17][2][2], dp[SN][2];
 il void add(int u, int v) {
   Ver[++tot] = v, Next[tot] = Head[u], Head[u] = tot;
 }
+
 void dfs1(int x, int fa) {
   dep[x] = dep[fa] + 1;
   f[x][0] = fa;
@@ -27,6 +28,7 @@ void dfs1(int x, int fa) {
     dp[x][1] += min(dp[y][0], dp[y][1]);
   }
 }
+
 void dfs2(int x) {
   g[x][0][1][0] = dp[f[x][0]][0] - dp[x][1];
   g[x][0][0][1] = g[x][0][1][1] = dp[f[x][0]][1] - min(dp[x][0], dp[x][1]);
@@ -43,10 +45,12 @@ void dfs2(int x) {
   for (reg i = Head[x]; i; i = Next[i])
     if (Ver[i] != f[x][0]) dfs2(Ver[i]);
 }
+
 il void preWork() {
   dfs1(1, 0);
   dfs2(1);
 }
+
 il ll query(int u, int s1, int v, int s2) {
   if (dep[v] > dep[u]) swap(u, v), swap(s1, s2);
   // printf("0 %d %d\n", u, v);

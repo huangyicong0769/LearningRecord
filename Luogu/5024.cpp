@@ -84,19 +84,15 @@ il ll query(int u, int s1, int v, int s2) {
   }
   // printf("2 %d\n", L);
   register ll ans;
-  if (L == 1)
-    ans = min(l0, l1);
-  else {
+  if (L != 1)
     for (reg i = 16; i >= 0; i--)
-      if (dep[f[L][i]] > dep[1]) {
+      if (dep[f[L][i]] >= dep[1]) {
         register ll t0 = l0, t1 = l1;
         l0 = min(t0 + g[L][i][0][0], t1 + g[L][i][1][0]);
         l1 = min(t0 + g[L][i][0][1], t1 + g[L][i][1][1]);
         L = f[L][i];
       }
-    ans = min(dp[1][0] - dp[L][1] + l1,
-              dp[1][1] - min(dp[L][0], dp[L][1]) + min(l0, l1));
-  }
+  ans = min(l0, l1);
   return ans < INF ? ans : -1;
 }
 

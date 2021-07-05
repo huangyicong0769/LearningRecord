@@ -1,0 +1,5 @@
+s = input()
+l = list(s)
+l.reverse()
+del(l[0])
+print("".join(l))

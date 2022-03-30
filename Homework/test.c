@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
-double fact(int(n)){
+
+double fact(int n){
  int i;
  double product;
  product=1;
@@ -9,8 +10,8 @@ double fact(int(n)){
  }
  return product;
 }
-int main (void)
-{
+
+int main (void){
  int i;
  double x,sum,item;
  sum=1;
@@ -18,7 +19,7 @@ int main (void)
  scanf("%lf",&x);
  item=1;
  do{
-  item=(item*x)/fact(i);
+  item=(item*x);
   sum=sum+item;
   i=i+1;
  }while(fabs(item)>=0.00001);

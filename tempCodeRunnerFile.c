@@ -2,21 +2,16 @@
 #include <math.h>
 
 int main(void)
-{
-double a,b,c;
-double area,perimeter,s;
-
-	printf("Enter 3 sides of the triangle: ");
-	scanf( "%lf%lf%lf",&a,&b,&c);
-
-	if(a + b>c && b + c > a && a + c>b) {
-	    s = (a + b + c)/2;
-		area = sqrt(s*(s-a)*(s-b)*(s-c));
-		perimeter = a + b + c;
-		printf("area = %.2f; perimeter = %.2f\n",area,perimeter);
-	}
-	else
-		printf("These sides do not correspond to a valid triangle\n");
-
-    return 0;        
+{   
+      int count = 0, number;
+      scanf ("%d", &number);
+      int t_number = number;
+      if(t_number < 0) {
+            t_number = -t_number; 
+      }   
+      while(t_number != 0){       
+          count++;
+          t_number = t_number / 10;
+      };
+      printf("%d\n", count);
 }

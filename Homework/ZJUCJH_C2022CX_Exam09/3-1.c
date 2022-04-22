@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+  int n, x;
+  scanf("%d%d", &n, &x);
+  for (register int i = 0; i < n; i++){
+    int a;
+    scanf("%d", &a);
+    if (a == x) {
+      printf("%d\n", i);
+      goto Found;
+    }
+  }
+  printf("Not Found\n");
+Found:
+  return 0;
+}

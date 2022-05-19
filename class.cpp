@@ -1,8 +1,4 @@
-#include <cmath>
-#include <cstdio>
-#include <initializer_list>
-#include <iomanip>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Vector {
@@ -74,5 +70,45 @@ class Vector {
 
   bool operator>=(const Vector &v) { return *this > v || *this == v; }
 
+<<<<<<< HEAD
   bool operator!=(const Vector &v) { return !(*this == v); }
+=======
+  inline bool operator!=(const Vector &v) { return !(*this == v); }
+};
+
+class KMP {
+  char *cs;
+  vector<int> nxt;
+
+  inline void init() {
+    int m = strlen(cs + 1);
+    nxt.resize(m + 1);
+    for (int i = 2, j = 0; i <= m; i++) {
+      while (j && cs[i] != cs[j + 1]) j = nxt[j];
+      if (cs[i] == cs[j + 1]) j++;
+      nxt[i] = j;
+    }
+  }
+
+ public:
+  KMP(char *s) { cs = s, init(); }
+
+  inline void find(char *s) {
+    int m = strlen(cs + 1), n = strlen(s + 1);
+    for (int i = 1, j = 0; i <= n; i++) {
+      while (j && s[i] != cs[j + 1]) j = nxt[j];
+      if (s[i] == cs[j + 1]) j++;
+      if (j == m) {
+        printf("%d\n", i - m + 1);
+        j = nxt[j];
+      }
+    }
+  }
+
+  inline void printNxt() {
+    int m = strlen(cs + 1);
+    for (int i = 1; i <= m; i++) printf("%d ", nxt[i]);
+    puts("");
+  }
+>>>>>>> 2e33608e696cd09e8b756653dde79449f571b71b
 };

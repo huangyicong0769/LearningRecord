@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 #include <string>
 #include <string_view>
 #include <algorithm>
